@@ -17,6 +17,10 @@ class CreateActionLogsTable extends Migration
             $table->timestamp('updated_at')->default(DB::raw('current_timestamp on update current_timestamp'))->comment('更新日時');
             $table->softDeletes()->comment('削除日時');
             $table->index(['user_id']);
+
+            //外部キー接続宣言
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('post_id')->constrained();
         });
     }
 
