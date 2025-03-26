@@ -12,4 +12,15 @@ class PostCommentFavorite extends Model
         'user_id',
         'post_comment_id',
     ];
+
+    //リレーション関係
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function post_comment()
+    {
+        return $this->belongsTo(PostComment::class);
+    }
 }

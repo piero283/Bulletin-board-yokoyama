@@ -11,4 +11,10 @@ class PostMainCategory extends Model
     protected $fillable = [
         'main_category',
     ];
+
+    //リレーション関係
+    public function post_sub_categories()
+    {
+        return $this->hasMany(PostSubCategory::class);
+    }
 }

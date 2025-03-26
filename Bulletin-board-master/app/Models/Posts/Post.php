@@ -17,4 +17,30 @@ class Post extends Model
         'post',
         'event_at',
     ];
+
+    //リレーション関係
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function post_sub_category()
+    {
+        return $this->belongsTo(PostSubCategory::class);
+    }
+
+    public function post_comments()
+    {
+        return $this->hasMany(PostComment::class);
+    }
+
+    public function post_favorites()
+    {
+        return $this->hasMany(PostFavorite::class);
+    }
+
+    public function action_logs()
+    {
+        return $this->hasMany(ActionLog::class);
+    }
 }

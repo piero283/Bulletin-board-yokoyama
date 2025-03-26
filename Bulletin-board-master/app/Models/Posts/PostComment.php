@@ -16,4 +16,20 @@ class PostComment extends Model
         'comment',
         'event_at',
     ];
+
+    //リレーション関係
+    public function post()
+    {
+        return $this->belongsTo(Post::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function post_comment_favorites()
+    {
+        return $this->hasMany(PostCommentFavorite::class);
+    }
 }

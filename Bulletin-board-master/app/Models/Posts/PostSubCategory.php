@@ -12,4 +12,15 @@ class PostSubCategory extends Model
         'post_main_category_id',
         'sub_category',
     ];
+
+    //リレーション関係
+    public function post_main_category()
+    {
+        return $this->belongsTo(PostMainCategory::class);
+    }
+
+    public function posts()
+    {
+        return $this->hosMany(Post::class);
+    }
 }
